@@ -5,13 +5,19 @@ const Header = () => {
         <Paper 
         elevation={2}
         sx={{
-        height: 40,
+        height: 100,
+        width: "100%",
+        marginBottom: "10px",
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         position: 'sticky',
         top: 0,
         zIndex: 3,
+        backgroundColor: '#39445a',
+        fontSize: "50px",
+        fontFamily: "Montserrat",
+        boxShadow: "0 8px 8px rgba(0, 0, 0, 0.2)"
         }}
         >
             Movie Hub

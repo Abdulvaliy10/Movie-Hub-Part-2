@@ -1,37 +1,41 @@
-import { Badge, Card, CardActionArea, CardContent, CardMedia, Stack, Typography } from "@mui/material"
+import { Badge, Button, Card,  CardActions, CardContent, CardMedia, Typography } from "@mui/material"
 
 
 const MovieCard = (movie) => {
     return (
         <Badge badgeContent={movie.rating} color="secondary">
-            <Card variant="outlined">
-                <CardActionArea sx={{p: 1}}>
-                    <CardMedia
-                        component="img"
-                        height={"300px"}
-                        width={"200px"}
-                        image={movie.image}
-                        alt="deadpool"/>
-                    <CardContent>
-                        <Typography
-                        gutterBottom
-                        variant="h5"
-                        component="div"
-                        textAlign={"center"}
-                    >
-                        {movie.name}
-                    </Typography>
-                    <Stack
-                    display={"flex"}
-                    justifyContent={"center"}
-                    direction={"row"}
-                    >
-                        <Typography variant="body2">{movie.type}</Typography>
-                        <Typography variant="body2">{movie.date}</Typography>
-                    </Stack>
-                    </CardContent>
-                 </CardActionArea>
-                 </Card>
+                 <Card sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: "300px",
+                  marginLeft: "25px",
+                  position: "relative",
+                  fontFamily: "Montserrat",
+                  borderRadius: "15px",
+                  marginBottom: "25px",
+                 }}>
+      <CardMedia
+        sx={{ height: 400 , width: 300, borderRadius: "15px", display: "flex",
+          justifyContent: "space-between",
+         }}
+        image="https://image.tmdb.org/t/p/w300/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg"
+        title="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          Deadpool
+        </Typography>
+        <Typography variant="body2" sx={{ color: 'white',fontFamily: "Montserrat", }}>
+          movie
+        </Typography>
+        <Typography variant="body2" sx={{ color: 'white',fontFamily: "Montserrat", }}>
+          2024-07-24
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Learn more</Button>
+      </CardActions>
+    </Card>
             </Badge>
     );
 };

@@ -6,12 +6,12 @@ import {
     Stack, 
     Typography, 
   } from "@mui/material"; 
-  import MovieCard from "./MovieCard"; 
+  import SerieCard from "../TvSeries/SerieCard"; 
   import { useEffect, useState } from "react"; 
-  import moviePageApi from "../../services/movies"; 
-  import MovieModal from "../Movies/MovieModal";
+  import moviePageApi from "../../services/serie"; 
+  import MovieModal from "../TvSeries/MovieModal";
    
-  const Movies = () => { 
+  const Series = () => { 
     const [genres, setGenres] = useState([]); 
     const [movies, setMovies] = useState([]); 
     const [totalPages, setTotalPages] = useState(1); 
@@ -20,9 +20,9 @@ import {
     const [page, setPage] = useState(1); 
     const [isDetailModalOpen, setIsDetailModalOpen] = useState(false); 
    
-    const getMovies = async (page, genres) => { 
+    const getSeries = async (page, genres) => { 
       setLoading(true); 
-      const data = await moviePageApi.getMovies(page, genres); 
+      const data = await moviePageApi.getSeries(page, genres); 
       setMovies(data.results); 
       setTotalPages(data.total_pages); 
       setLoading(false); 
@@ -35,26 +35,26 @@ import {
    
     useEffect(() => { 
       getGenres(); 
-      getMovies(1); 
+      getSeries(1); 
     }, []); 
    
     const handlePageChange = (e, page) => { 
       setPage(page); 
-      getMovies(page); 
+      getSeries(page); 
     }; 
    
     const handleGenreSelect = (genreId) => { 
       if (!selectedGenres.includes(genreId)) { 
         const newGenres = [...selectedGenres, genreId]; 
         setSelectedGenres(newGenres); 
-        getMovies(page, newGenres); 
+        getSeries(page, newGenres); 
       } 
     }; 
    
     const handleDelete = (genreId) => { 
       const newGenres = selectedGenres.filter((g) => g !== genreId); 
       setSelectedGenres(newGenres); 
-      getMovies(page, newGenres); 
+      getSeries(page, newGenres); 
     }; 
    
     return ( 
@@ -72,7 +72,7 @@ import {
           }} 
           my={2} 
         > 
-          discover movies 
+          discover series 
         </Typography> 
         {genres.map((genre) => ( 
           <Chip 
@@ -99,7 +99,7 @@ import {
                 key={i} 
                 size={{ md: 3, sm: 4, xs: 6 }} 
               > 
-                <MovieCard movie={movie} type={"movie"} /> 
+                <SerieCard movie={movie} type={"movie"} /> 
               </Grid2> 
             ))} 
           </Grid2> 
@@ -115,4 +115,4 @@ import {
     ); 
   }; 
    
-  export default Movies;
+  export default Series;

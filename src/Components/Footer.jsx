@@ -13,13 +13,12 @@ const Footer = () => {
         width: "100%",
         bottom: "0",
         zIndex: "100",
-        position: "fixed",
+        position: "sticky",
         backgroundColor: "#2d313a",
         display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
         height: "70px",
-        marginTop: "200px",
       }}
     >
       <Link to="/" sx="textDecoration: 'none'">

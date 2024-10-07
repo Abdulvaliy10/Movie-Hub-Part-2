@@ -16,14 +16,14 @@ const MovieCard = ({movie}) => {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div" textAlign={"center"} minHeight={100} mb={0}>
-         {movie.original_title}
+         {movie.original_name}
         </Typography>
         <Stack display={"flex"} justifyContent={"space-between"}>
         <Typography variant="body2" sx={{ color: 'white',fontFamily: "Montserrat", }}>
           movie
         </Typography>
         <Typography variant="body2" sx={{ color: 'white',fontFamily: "Montserrat", }}>
-          {movie.release_date}
+          {movie.first_air_date}
         </Typography>
         </Stack>
       </CardContent>
